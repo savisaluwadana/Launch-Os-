@@ -1,0 +1,43 @@
+name: Launch OS reviewable release campaign
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-launch-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout Launch OS
+        uses: actions/checkout@v4
+        with:
+          repository: savisaluwadana/Launch-Os-
+          ref: main
+          path: .launchos-tool
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate release campaign (never publish)
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node .launchos-tool/src/cli.js generate \
+            --repo "$GITHUB_REPOSITORY" \
+            --tag "$RELEASE_TAG" \
+            --config launchos.config.json \
+            --out launches/draft
+      - name: Open maintainer review PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: launchos/draft-campaign
+          commit-message: 'docs: draft campaign for new release'
+          title: 'docs: review release launch campaign'
+          body: 'Generated content is a draft. Check the evidence register and approve any publication manually.'
+          add-paths: launches/**

@@ -1,0 +1,8 @@
+{
+  "tag_name": "v0.1.0",
+  "name": "Launch OS v0.1.0 demo",
+  "body": "## Highlights\n\n- Added draft campaign generation from GitHub-style release notes.\n- Included an evidence register that links launch claims back to their release notes.\n- Added a local command-line workflow that never publishes without approval.\n\nThis is fictional demo release data, not an actual tagged release.",
+  "html_url": "https://github.com/savisaluwadana/Launch-Os-/releases/tag/v0.1.0",
+  "repository": "savisaluwadana/Launch-Os-",
+  "published_at": "2026-11-11T00:00:00Z"
+}
