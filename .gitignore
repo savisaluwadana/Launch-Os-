@@ -1,0 +1,6 @@
+node_modules/
+.tmp/
+launch-output/
+coverage/
+.env
+.DS_Store

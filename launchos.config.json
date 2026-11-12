@@ -1,0 +1,12 @@
+{
+  "project": {
+    "name": "Launch OS",
+    "website": "https://github.com/savisaluwadana/Launch-Os-",
+    "audience": ["open-source maintainers", "developer tool teams"],
+    "voice": "human, practical, evidence-based"
+  },
+  "channels": ["blog", "linkedin", "bluesky", "newsletter"],
+  "ai": { "provider": "none" },
+  "approvalRequired": true,
+  "autoPublish": false
+}

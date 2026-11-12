@@ -1,0 +1,19 @@
+{
+  "name": "launch-os-cli",
+  "version": "0.1.0",
+  "description": "Open-source, approval-first release-to-launch automation",
+  "type": "module",
+  "bin": {
+    "launchos": "./src/cli.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/cli.js && node --check src/config.js && node --check src/github.js && node --check src/generator.js && node --check src/ai.js",
+    "demo": "node src/cli.js generate --release-file fixtures/example-release.json --config launchos.config.json --out .tmp/demo"
+  },
+  "keywords": ["open-source", "developer-marketing", "github", "release", "automation"],
+  "license": "Apache-2.0"
+}
